@@ -1,9 +1,9 @@
 <section>
-    Canvas
-    <div class="row">
-        <canvas canvas-draw image="vm.image" rectangles="vm.rectangles" id="canvas"></canvas>
+    <div>
+        <div class="row">
+            <pk-canvas image="vm.image" rectangles="vm.rectangles" editable="true" id="canvas"></pk-canvas>
+        </div>
     </div>
-    <!--TODO new component - button, image, data-->
     <div>
         <button ng-click="vm.markParkingSpots()">Upload</button>
     </div>

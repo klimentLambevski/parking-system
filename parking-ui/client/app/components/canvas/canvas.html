@@ -1,10 +1,9 @@
 <div>
-    Canvas
     <div class="row">
-        <canvas canvas-draw image="vm.image" rectangles="vm.rectangles" id="canvas"></canvas>
-    </div>
-    <!--TODO new component - button, image, data-->
-    <div>
-        <button ng-click="vm.markParkingSpots()">Upload</button>
+        <canvas canvas-draw
+                image="vm.image"
+                rectangles="vm.rectangles"
+                drawing-enabled="{{vm.editable}}"
+                id="canvas"></canvas>
     </div>
 </div>

@@ -3,41 +3,37 @@ import Draw from '../../common/draw/draw'
 let canvasDraw = function (Draw) {
     return {
         restrict: 'A',
-        require: '^pkCanvas',
         scope: {
             image: '=',
-            rectangles: '=?'
+            rectangles: '=?',
+            drawingEnabled: '@?'
         },
-        link: function (scope, element, attrs, ctrl) {
-            //TODO scope.editable
+        link: function (scope, element) {
             let canvas = angular.element(element)[0];
             let context = canvas.getContext('2d');
-            let drawing = false,
-                drawingEnabled = true;
+            let drawing = false;
             let image = new Image();
-
+            let offsetTop = canvas.offsetTop;
+            let offsetLeft = canvas.offsetLeft;
+            console.log(element, offsetTop);
             image.src = scope.image;
 
             image.onload = function () {
                 canvas.width = image.width;
                 canvas.height = image.height;
+                console.log(canvas.width, canvas.height);
                 context.drawImage(image, 0, 0);
                 Draw.setContext(context);
                 Draw.setImage(image);
                 Draw.setRectangles(scope.rectangles);
             };
 
-            scope.$watch('rectangles', function (newRec) {
-                if (newRec.length) {
-                    Draw.draw();
-                }
-            }, true);
-
             //TODO click ?
             let onMouseDown = ($event) => {
+                console.log($event);
                 drawing = true;
-                let x = $event.x - $event.target.offsetLeft;
-                let y = $event.y - $event.target.offsetTop;
+                let x = $event.layerX;
+                let y = $event.layerY;
 
                 //TODO move this in service ?
                 if (!Draw.getFirstPoint()) {
@@ -53,13 +49,13 @@ let canvasDraw = function (Draw) {
                 if (!drawing) {
                     return false;
                 }
-                let x = $event.x - $event.target.offsetLeft;
-                let y = $event.y - $event.target.offsetTop;
+                let x = $event.layerX;
+                let y = $event.layerY;
                 Draw.draw();
                 Draw.drawLineTo(x, y);
             };
 
-            if (drawingEnabled) {
+            if (scope.drawingEnabled) {
                 element.on('mousedown', onMouseDown);
                 element.on('mousemove', onMouseMove);
             }

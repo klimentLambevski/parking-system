@@ -3,10 +3,15 @@ import controller from './canvas.controller';
 
 let canvasComponent = {
   restrict: 'E',
-  bindings: {},
+  bindings: {
+    rectangles: '=',
+    image: '=',
+    editable: '@?'
+  },
   template,
   controller,
-  controllerAs: 'vm'
+  controllerAs: 'vm',
+  bindToController: true
 };
 
 export default canvasComponent;

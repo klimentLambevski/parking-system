@@ -1,3 +1,12 @@
-/**
- * Created by Dankko on 23.4.2016.
- */
+import template from './mark-spots.html';
+import controller from './mark-spots.controller';
+
+let markSpotsComponent = {
+    restrict: 'E',
+    bindings: {},
+    template,
+    controller,
+    controllerAs: 'vm'
+};
+
+export default markSpotsComponent;
