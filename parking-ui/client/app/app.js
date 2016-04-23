@@ -6,13 +6,12 @@ import AppComponent from './app.component';
 import 'normalize.css';
 
 angular.module('app', [
-    uiRouter,
-    Common.name,
-    Components.name
-  ])
-  .config(($locationProvider) => {
-  "ngInject";
-    $locationProvider.html5Mode(true).hashPrefix('!');
-  })
-
-.component('app', AppComponent);
+        uiRouter,
+        Common.name,
+        Components.name
+    ])
+    .config(($locationProvider, $urlRouterProvider) => {
+        $urlRouterProvider.otherwise('/parking');
+        $locationProvider.html5Mode(true).hashPrefix('!');
+    })
+    .component('app', AppComponent);

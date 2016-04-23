@@ -1,10 +1,10 @@
 import angular from 'angular';
-import Home from './home/home';
 import Canvas from './canvas/canvas'
+import Parking from './parking/parking'
 
 let componentModule = angular.module('app.components', [
-  Home.name,
-  Canvas.name
+  Canvas.name,
+  Parking.name
 ]);
 
 export default componentModule;

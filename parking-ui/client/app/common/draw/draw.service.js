@@ -14,7 +14,7 @@ let DrawService = function () {
    * Draws all lines.
    * */
   let draw = () => {
-    context.drawImage(image, 0, 0);
+    drawImage();
     drawLines();
     drawRectangles();
   };
@@ -105,13 +105,25 @@ let DrawService = function () {
   };
 
   //private
+  let drawImage = () => {
+    if (!context) {
+      return;
+    }
+    context.drawImage(image, 0, 0);
+  };
   let drawLines = () => {
+    if (!lines) {
+      return;
+    }
     lines.forEach(function (line) {
       line.draw(context);
     });
   };
 
   let drawRectangles = () => {
+    if (!rectangles) {
+      return;
+    }
     rectangles.forEach(function (rectangle) {
       rectangle.draw(context);
     });
