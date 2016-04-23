@@ -2,7 +2,7 @@ import Point from './point';
 import _ from 'lodash';
 
 class Rectangle {
-  constructor (p0, p1, p2, p3) {
+  constructor(p0, p1, p2, p3) {
     this.lines = [];
     this.lines.push(p0);
     this.lines.push(p1);
@@ -10,13 +10,13 @@ class Rectangle {
     this.lines.push(p3);
   }
 
-  draw (context) {
+  draw(context) {
     this.lines.forEach(function (line) {
       line.draw(context);
     });
   }
 
-  getPoints () {
+  getPoints() {
     return _.map(this.lines, function (line) {
       return line.getP0();
     });

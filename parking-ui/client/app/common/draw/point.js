@@ -25,10 +25,6 @@ class Point {
     context.stroke();
   }
 
-  getDistanceTo (x, y) {
-    return Math.sqrt((this.x - x) * (this.x - x) + (this.y - y) * (this.y - y));
-  };
-
   equals (point) {
     return this.x === point.getX() && this.y === point.getY();
   }

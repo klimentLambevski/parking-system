@@ -2,7 +2,7 @@ import Point from './point';
 import Line from  './line';
 import Rectangle from './rectangle';
 
-let DrawService = function () {
+let DrawService = () => {
   let rectangles = [];
   let lines = [];
   let firstPoint;
@@ -46,7 +46,7 @@ let DrawService = function () {
    * @param y y-coordinate
    * */
   let addLine = (x, y) => {
-    let  endPoint = new Point(x, y);
+    let endPoint = new Point(x, y);
     lines.push(new Line(firstPoint, endPoint));
     if (isDrawEnd()) {
       addRectangle();
@@ -115,7 +115,7 @@ let DrawService = function () {
     if (!lines) {
       return;
     }
-    lines.forEach(function (line) {
+    lines.forEach((line) => {
       line.draw(context);
     });
   };
@@ -124,7 +124,7 @@ let DrawService = function () {
     if (!rectangles) {
       return;
     }
-    rectangles.forEach(function (rectangle) {
+    rectangles.forEach((rectangle) => {
       rectangle.draw(context);
     });
   };

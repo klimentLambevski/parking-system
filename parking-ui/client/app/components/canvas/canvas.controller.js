@@ -1,9 +1,7 @@
 class CanvasController {
-
-    constructor() {
-        this.name = 'canvas';
-    }
-
+  constructor() {
+    this.name = 'canvas';
+  }
 }
 
 export default CanvasController;

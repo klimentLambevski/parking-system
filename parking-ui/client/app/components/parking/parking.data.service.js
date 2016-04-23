@@ -1,4 +1,4 @@
-let MarkSpotsService = ($http) => {
+let ParkingDataService = ($http) => {
 
   let getParkingSpots = () => {
     return $http.get('http://localhost:3333/image/parkingSpots');
@@ -9,4 +9,4 @@ let MarkSpotsService = ($http) => {
   }
 };
 
-export default MarkSpotsService;
+export default ParkingDataService;

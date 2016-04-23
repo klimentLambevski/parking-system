@@ -7,19 +7,19 @@ class Line {
     this.p1 = p1;
   }
 
-  getP0 () {
+  getP0() {
     return this.p0;
   };
 
-  getP1 () {
+  getP1() {
     return this.p1;
   };
 
-  setP1 (p) {
+  setP1(p) {
     this.p1.setCoordinates(p.getX(), p.getY());
   }
 
-  draw (context) {
+  draw(context) {
     context.beginPath();
     context.moveTo(this.getP0().getX(), this.getP0().getY());
     context.lineTo(this.getP1().getX(), this.getP1().getY());

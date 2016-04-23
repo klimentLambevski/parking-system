@@ -5,14 +5,6 @@ var spawn = require('child_process').spawn;
 var fs = require('fs');
 var config = require('../config/config');
 
-//----- DB ------
-var parkingSpots = {
-    parkingSpots: [
-        {name: 0, index: 0, spots: [{x: 213, y: 36}, {x: 237, y: 205}, {x: 355, y: 200}, {x: 336, y: 116}]}
-    ]
-};
-//----- DB ------
-
 /**
  * Mark parking spots.
  * */
