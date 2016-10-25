@@ -4,22 +4,22 @@ import MarkSpotsService from './mark-spots.service';
 import _ from 'lodash';
 
 class MarkSpotsController {
-  constructor(Draw, MarkSpotsService) {
-    this.name = 'markSpots';
-    this.Draw = Draw;
-    this.MarkSpotsService = MarkSpotsService;
-    //TODO not like this brah
-    this.image = 'http://localhost:3333/image/parking';
-    this.rectangles = [];
-  }
+    constructor(Draw, MarkSpotsService) {
+        this.name = 'markSpots';
+        this.Draw = Draw;
+        this.MarkSpotsService = MarkSpotsService;
+        //TODO not like this brah
+        this.image = 'http://localhost:3333/image/parking';
+        this.rectangles = [];
+    }
 
-  markParkingSpots() {
-    let rectangles = this.Draw.getRectangles();
-    let markedRectangles = _.map(rectangles, function (rectangle, index) {
-      return new MarkedRectangle(index, index, rectangle.getPoints());
-    });
-    this.MarkSpotsService.markParkingSpots({parkingSpots: markedRectangles});
-  }
+    markParkingSpots() {
+        let rectangles = this.Draw.getRectangles();
+        let markedRectangles = _.map(rectangles, (rectangle, index) => {
+            return new MarkedRectangle(index, index, rectangle.getPoints());
+        });
+        this.MarkSpotsService.markParkingSpots({parkingSpots: markedRectangles});
+    }
 
 }
 

@@ -7,7 +7,7 @@ import json
 path = os.path.dirname(os.path.realpath(__file__))
 
 imagesCheckFolderPath = path + os.altsep + "data" + os.altsep + "logs" + os.altsep + "parkingImagesCheck"
-imgParkingLogPath = path + os.altsep + "data" + os.altsep + "images" + os.altsep + "parkingLot.jpg"
+imgParkingLogPath = path + os.altsep + "data" + os.altsep + "images" + os.altsep + "parking.jpg"
 parkingDataJsFilePath = path + os.altsep + "data" + os.altsep + "config" + os.altsep + "parkingData.json"
 dataFileEmptyPS = path + os.altsep + "data" + os.altsep + "config" + os.altsep + "dataPSEmpty.json"
 configDataJsFilePath = path + os.altsep + "data" + os.altsep + "config" + os.altsep + "config.json"
@@ -32,7 +32,8 @@ except:
 try:
     baseUrlRaspberryPi = config['baseUrlRaspberryPi']
 except:
-    errorChecksum="baseUrlRaspberryPi not Defined in Config.json"
+    errorChecksum = "baseUrlRaspberryPi not Defined in Config.json"
+
 
 # iterating all spots from json file dataParallel.json
 def checkParkingSpotsFromJsonData(errorChecksum):

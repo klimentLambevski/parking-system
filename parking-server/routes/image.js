@@ -68,7 +68,7 @@ function takePicture() {
 }
 
 function getPicture() {
-    return request.get(config.raspberryPyUrl + '/static/parkingLot.jpg');
+    return request.get(config.raspberryPyUrl + '/static/parking.jpg');
 }
 
 module.exports = router;
