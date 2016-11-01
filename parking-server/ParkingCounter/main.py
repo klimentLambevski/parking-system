@@ -7,7 +7,7 @@ import json
 path = os.path.dirname(os.path.realpath(__file__))
 
 imagesCheckFolderPath = path + os.altsep + "data" + os.altsep + "logs" + os.altsep + "parkingImagesCheck"
-imgParkingLogPath = path + os.altsep + "data" + os.altsep + "images" + os.altsep + "parking.jpg"
+imgParkingLogPath = path + os.altsep + "data" + os.altsep + "images" + os.altsep + "parkingLot.jpg"
 parkingDataJsFilePath = path + os.altsep + "data" + os.altsep + "config" + os.altsep + "parkingData.json"
 dataFileEmptyPS = path + os.altsep + "data" + os.altsep + "config" + os.altsep + "dataPSEmpty.json"
 configDataJsFilePath = path + os.altsep + "data" + os.altsep + "config" + os.altsep + "config.json"
@@ -38,7 +38,7 @@ except:
 # iterating all spots from json file dataParallel.json
 def checkParkingSpotsFromJsonData(errorChecksum):
     if useCamera:
-        image = utility.takeImage()
+        image = utility.getImageFromRaspberry(baseUrlRaspberryPi)
         if enableLogging:
             image.save(imgParkingLogPath)
     else:

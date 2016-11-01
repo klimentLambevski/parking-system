@@ -41,6 +41,7 @@ router.get('/parkingSpots', function (req, res, next) {
 
     py.on('close', function (code) {
         py.kill();
+        console.log(arguments);
         if (code !== 0) {
             res.json({error: code});
         } else {
@@ -60,7 +61,18 @@ router.get('/parking', function (req, res, next) {
  * Get latest parking image.
  * */
 router.get('/takePicture', function (req, res, next) {
-    getPicture().pipe(res);
+    takePicture()
+        .on('response', function(err) {
+            getPicture()
+                .on('error', function () {
+                    res.status(500).send(err);
+                })
+                .pipe(res)
+
+        })
+        .on('error', function () {
+            res.status(500).send(err);
+        });
 });
 
 function takePicture() {
@@ -68,7 +80,7 @@ function takePicture() {
 }
 
 function getPicture() {
-    return request.get(config.raspberryPyUrl + '/static/parking.jpg');
+    return request.get(config.raspberryPyUrl + '/static/parkingLot.jpg');
 }
 
 module.exports = router;

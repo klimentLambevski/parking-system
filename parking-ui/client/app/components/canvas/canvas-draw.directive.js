@@ -27,8 +27,8 @@ let canvasDraw = (Draw) => {
       //TODO click ?
       let onMouseDown = ($event) => {
         drawing = true;
-        let x = $event.layerX;
-        let y = $event.layerY;
+        let x = $event.offsetX;
+        let y = $event.offsetY;
 
         //TODO move this in service ?
         if (!Draw.getFirstPoint()) {
@@ -44,8 +44,8 @@ let canvasDraw = (Draw) => {
         if (!drawing) {
           return false;
         }
-        let x = $event.layerX;
-        let y = $event.layerY;
+        let x = $event.offsetX;
+        let y = $event.offsetY;
         Draw.draw();
         Draw.drawLineTo(x, y);
       };

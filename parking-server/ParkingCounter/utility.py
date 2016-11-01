@@ -102,9 +102,9 @@ def getImageFromRaspberry(baseUrl):
     except:
         print ""
     #     comment the following three lines if you do not want the server to take new image
-    # response = requests.get(baseUrl+"/getImageUrl/", stream=True)
-    # if response.status_code != 200:
-    #     return "getImageFromRaspberry()->getImageUrl error:"+str(response.status_code)
+    response = requests.get(baseUrl+"/getImageUrl/", stream=True)
+    if response.status_code != 200:
+        return "getImageFromRaspberry()->getImageUrl error:"+str(response.status_code)
 
     response = requests.get(baseUrl+"/static/parkingLot.jpg", stream=True)
     if response.status_code != 200:
