@@ -1,16 +1,26 @@
+import '../bootstrap'
+
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
+import 'angular-loading-bar';
+
 import Common from './common/common';
 import Components from './components/components';
-import AppComponent from './app.component';
+
+import template from './app.html';
+
 
 angular.module('app', [
+    'angular-loading-bar',
     uiRouter,
     Common.name,
     Components.name
-  ])
-  .config(($locationProvider, $urlRouterProvider) => {
+]).config(($locationProvider, $urlRouterProvider) => {
     $urlRouterProvider.otherwise('/parking');
     $locationProvider.html5Mode(true).hashPrefix('!');
-  })
-  .component('app', AppComponent);
+}).component('app', {
+    template,
+    controller() {
+
+    }
+});

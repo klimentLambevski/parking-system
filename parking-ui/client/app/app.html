@@ -1,4 +1,14 @@
 <div class="app">
-    <navbar></navbar>
-    <div ui-view></div>
+    <div class="ui secondary pointing menu" style="background: whitesmoke">
+        <a class="item" ui-sref="markSpots" ui-sref-active="active">Mark parking spots</a>
+        <a class="item" ui-sref="parking" ui-sref-active="active">Parking</a>
+
+        <div class="right menu">
+            <a class="ui item">
+                Reset
+            </a>
+        </div>
+    </div>
+
+    <div ui-view style="padding: 20px;"></div>
 </div>

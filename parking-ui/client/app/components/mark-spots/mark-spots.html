@@ -1,10 +1,8 @@
 <section>
-    <div>
-        <div class="row">
-            <pk-canvas image="vm.image" rectangles="vm.rectangles" editable="true" id="canvas"></pk-canvas>
-        </div>
-    </div>
-    <div>
-        <button ng-click="vm.markParkingSpots()">Mark parking spots</button>
-    </div>
+    <pk-canvas image="vm.image" rectangles="vm.rectangles" editable="true" id="canvas"></pk-canvas>
+
+    <button class="fluid ui big right labeled icon button" style="margin-top: 20px;" ng-click="vm.markParkingSpots()">
+        MARK SPOTS
+        <i class="object ungroup icon"></i>
+    </button>
 </section>

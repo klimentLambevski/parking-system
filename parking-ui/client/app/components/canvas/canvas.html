@@ -1,10 +1,20 @@
-<div>
-    <div class="row">
-        <canvas canvas-draw
-                image="vm.image"
-                rectangles="vm.rectangles"
-                drawing-enabled="{{vm.editable}}"
-                id="canvas">
-        </canvas>
+<div class="pk-canvas">
+    <div class="ui segments">
+        <div class="ui segment">
+            <p>Parking slots</p>
+        </div>
+        <div class="ui secondary segment" style="padding: 0">
+            <canvas
+                    style="display: block; margin: 0 auto;"
+                    canvas-draw
+                    image="vm.image"
+                    rectangles="vm.rectangles"
+                    drawing-enabled="{{vm.editable}}"
+                    id="canvas"
+            >
+            </canvas>
+        </div>
     </div>
+
+
 </div>

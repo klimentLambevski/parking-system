@@ -18,7 +18,9 @@ class MarkSpotsController {
         let markedRectangles = _.map(rectangles, (rectangle, index) => {
             return new MarkedRectangle(index, index, rectangle.getPoints());
         });
-        this.MarkSpotsService.markParkingSpots({parkingSpots: markedRectangles});
+        this.MarkSpotsService.markParkingSpots({parkingSpots: markedRectangles}).then(function (data) {
+            toastr.info('New spots saved!');
+        });
     }
 
 }
