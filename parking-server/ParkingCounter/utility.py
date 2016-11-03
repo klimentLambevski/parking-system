@@ -6,9 +6,11 @@ import sys
 import requests
 import shutil
 
+path = os.path.dirname(os.path.realpath(__file__))
+
 # START static variables
 imageCheckFolderPath = "data" + os.altsep + "logs" + os.altsep + "parkingImagesCheck"
-
+imgParkingLogPathCamera = path + os.altsep + "data" + os.altsep + "images" + os.altsep + "parkingLot.jpg"
 
 # END static variables
 
@@ -112,7 +114,7 @@ def getImageFromRaspberry(baseUrl):
     with open('data/images/parkingLot.jpg', 'wb') as out_file:
         shutil.copyfileobj(response.raw, out_file)
     del response
-    return ""
+    return Image(imgParkingLogPathCamera)
     # with open('pic1.jpg', 'wb') as handle:
     #     response = requests.get(url, stream=True)
     #

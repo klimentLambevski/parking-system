@@ -2,5 +2,5 @@
   "threshold": 2000,
   "enableLogging": false,
   "useCamera": true,
-  "baseUrlRaspberryPi": "http://192.168.100.12:5000"
+  "baseUrlRaspberryPi": "http://192.168.100.35:5000"
 }
