@@ -1,17 +1,24 @@
+import config from "../../config";
 let MarkSpotsService = ($http) => {
 
-  let getParkingSpots = () => {
-    return $http.get('http://localhost:3333/image/parkingSpots');
-  };
+    let getParkingSpots = () => {
+        return $http.get(config.nodeServerHost + '/image/parkingSpots');
+    };
 
-  let markParkingSpots = (data) => {
-    return $http.post('http://localhost:3333/image/mark', data);
-  };
+    let takePicture = () => {
+        return $http.get(config.nodeServerHost + '/image/takePicture?' + Date.now());
+    };
 
-  return {
-    getParkingSpots: getParkingSpots,
-    markParkingSpots: markParkingSpots
-  }
+    let markParkingSpots = (data) => {
+        return $http.post(config.nodeServerHost + '/image/mark', data);
+    };
+
+
+    return {
+        getParkingSpots: getParkingSpots,
+        markParkingSpots: markParkingSpots,
+        takePicture: takePicture
+    }
 };
 
 export default MarkSpotsService;

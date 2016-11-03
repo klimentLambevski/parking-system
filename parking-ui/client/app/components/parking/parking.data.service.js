@@ -1,12 +1,14 @@
+import config from "../../config";
+
 let ParkingDataService = ($http) => {
 
-  let getParkingSpots = () => {
-    return $http.get('http://localhost:3333/image/parkingSpots');
-  };
+    let getParkingSpots = () => {
+        return $http.get(config.nodeServerHost + '/image/parkingSpots');
+    };
 
-  return {
-    getParkingSpots: getParkingSpots
-  }
+    return {
+        getParkingSpots: getParkingSpots
+    }
 };
 
 export default ParkingDataService;

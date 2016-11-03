@@ -2,7 +2,7 @@ from SimpleCV import *
 import utility
 import json
 
-#  you can check the coordinates of the right top parking spot Here:http://www.maschek.hu/imagemap/imgmap
+# you can check the coordinates of the right top parking spot Here:http://www.maschek.hu/imagemap/imgmap
 # START static variables
 path = os.path.dirname(os.path.realpath(__file__))
 
