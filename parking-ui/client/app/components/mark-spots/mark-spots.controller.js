@@ -2,6 +2,7 @@ import MarkedRectangle from '../canvas/marked-rectangle';
 import Draw from '../../common/draw/draw';
 import MarkSpotsService from './mark-spots.service';
 import _ from 'lodash';
+import config from "../../config";
 
 class MarkSpotsController {
     constructor(Draw, MarkSpotsService) {
@@ -9,7 +10,7 @@ class MarkSpotsController {
         this.Draw = Draw;
         this.MarkSpotsService = MarkSpotsService;
         //TODO not like this brah
-        this.image = 'http://localhost:3333/image/parking';
+        this.image = config.nodeServerHost + '/image/parking';
         this.rectangles = [];
     }
 
@@ -20,6 +21,12 @@ class MarkSpotsController {
         });
         this.MarkSpotsService.markParkingSpots({parkingSpots: markedRectangles}).then(function (data) {
             toastr.info('New spots saved!');
+        });
+    }
+
+    takePicture() {
+        this.MarkSpotsService.takePicture().then(() => {
+            window.location.reload();
         });
     }
 
