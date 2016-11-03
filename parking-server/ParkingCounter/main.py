@@ -7,7 +7,7 @@ import json
 path = os.path.dirname(os.path.realpath(__file__))
 
 imagesCheckFolderPath = path + os.altsep + "data" + os.altsep + "logs" + os.altsep + "parkingImagesCheck"
-imgParkingLogPath = path + os.altsep + "data" + os.altsep + "images" + os.altsep + "parking.jpg"
+imgParkingLogPath = path + os.altsep + "data" + os.altsep + "images" + os.altsep + "parkingLot.jpg"
 imgParkingLogPathCamera = path + os.altsep + "data" + os.altsep + "images" + os.altsep + "parkingLot.jpg"
 parkingDataJsFilePath = path + os.altsep + "data" + os.altsep + "config" + os.altsep + "parkingData.json"
 dataFileEmptyPS = path + os.altsep + "data" + os.altsep + "config" + os.altsep + "dataPSEmpty.json"
@@ -51,7 +51,7 @@ def checkParkingSpotsFromJsonData(errorChecksum):
         except Exception, e:
             utility.logToTextFile(utility.getException())
     if errorChecksum == "":
-        # image = Image(imgParkingLogPath)
+        image = Image(imgParkingLogPath)
 
         imgSpotToCheck = image.edges(25, 400)
 
