@@ -1,10 +1,10 @@
 var path = require('path');
 
 var config = {
-    raspberryPyUrl: 'http://192.168.100.12:5000',
+    raspberryPyUrl: 'http://192.168.100.35:5000',
     pythonScript: path.join(__dirname, '../ParkingCounter/main.py'),
     emptySpotsFile: '../ParkingCounter/data/config/parkingData.json',
-    emptyParkingImg: path.join(__dirname, '../public/images/parking.jpg')
+    emptyParkingImg: path.join(__dirname, '../ParkingCounter/data/images/parkingLot.jpg')
 };
 
 module.exports = config;

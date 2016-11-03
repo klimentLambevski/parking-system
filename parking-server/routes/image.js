@@ -63,24 +63,28 @@ router.get('/parking', function (req, res, next) {
 router.get('/takePicture', function (req, res, next) {
     takePicture()
         .on('response', function(err) {
-            getPicture()
-                .on('error', function () {
-                    res.status(500).send(err);
-                })
-                .pipe(res)
+            getPicture(function (err, response, body) {
+                fs.writeFile("../ParkingCounter/data/images/parkingLot.jpg", body, 'binary', function(err) {
+                    if(err)
+                        console.log(err);
+                    else
+                        console.log("The file was saved!");
+                });
+            })
+            .pipe(res)
 
         })
-        .on('error', function () {
+        .on('error', function (err) {
             res.status(500).send(err);
         });
 });
 
 function takePicture() {
-    return request.get(config.raspberryPyUrl + '/getImageUrl');
+    return request.get({url: config.raspberryPyUrl + '/getImageUrl', encoding: 'binary'});
 }
 
-function getPicture() {
-    return request.get(config.raspberryPyUrl + '/static/parkingLot.jpg');
+function getPicture(cb) {
+    return request.get({url: config.raspberryPyUrl + '/static/parkingLot.jpg', encoding: 'binary'}, cb);
 }
 
 module.exports = router;
